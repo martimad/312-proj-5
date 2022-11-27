@@ -93,7 +93,8 @@ class TSPSolver:
 		not include the initial BSSF), the best solution found, and three more ints: 
 		max queue size, total number of states created, and number of pruned states.</returns> 
 	'''
-		
+
+	# TODO here's where my stuff will go
 	def branchAndBound( self, time_allowance=60.0 ):
 		results = {}
 		cities = self._scenario.getCities()
@@ -103,9 +104,16 @@ class TSPSolver:
 		bssf = None
 		start_time = time.time()
 
-		while not foundTour and time.time() - start_time < time_allowance:
-			pass
-		# TODO here's where my stuff will go
+		# while not foundTour and time.time() - start_time < time_allowance:
+		# 	pass
+
+		#set up initial matrix
+		initialMatrix = [[-1 for i in range(ncities)] for j in range(ncities)]
+		for city in range(ncities):
+			for city2 in range(ncities):
+				initialMatrix[city][city2] = city.costTo(city, city2)
+
+
 		# start at the first city
 		# go to all the cities that dont have an inf in their answer
 		# turn all those rows to inf
